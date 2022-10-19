@@ -1,0 +1,21 @@
+.header {
+    &__wrapper {
+        padding: 68px 0px 100px;
+        background: linear-gradient(to right, #087990, #055160);
+    }
+    &__title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 72px;
+        line-height: 87px;
+        color: #CFF4FC;
+        margin-bottom: 4px;
+    }
+    &__subtitle {
+        text-align: center;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 36px;
+        color: #CFF4FC;
+    }
+}
