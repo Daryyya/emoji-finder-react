@@ -1,0 +1,18 @@
+.wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.input {
+  width: 820px;
+  height: 64px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 21px;
+  color: #abb5be;
+  padding: 10px 15px;
+}
