@@ -8,6 +8,7 @@ import React, { useState } from "react";
 
 function App() {
   const [value, setValue] = useState("");
+
   let sortArr = cards.filter(
     ({ title, keywords }) =>
       !value ||
@@ -17,6 +18,7 @@ function App() {
   function getValue(event) {
     setValue(event.target.value.toLowerCase().trim());
   }
+
   return (
     <>
       <Header>
@@ -24,12 +26,12 @@ function App() {
       </Header>
       <Main>
         <Container>
-          {sortArr.map(({ title, symbol, keywords }) => (
+          {sortArr.map(({ title, symbol, keywords }, index) => (
             <Card
-              key={title}
+              key={index}
               title={title}
               symbol={symbol}
-              keywords={keywords}
+              keywords={[...new Set(keywords.split(" "))].join(",")}
             />
           ))}
         </Container>
