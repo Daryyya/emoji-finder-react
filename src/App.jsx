@@ -25,8 +25,6 @@ function App() {
   let lastElem = page * select;
   let firstElem = page * select - select;
 
-  
-
   let test = sortArr.slice(firstElem, lastElem);
 
   function getValue(event) {
@@ -52,8 +50,10 @@ function App() {
             />
           ))}
         </Container>
-        <Select getSelect={getSelect} />
-        <Pagination perPage={perPage} setPage={setPage} page={page}/>
+
+        <Pagination perPage={perPage} setPage={setPage} page={page}>
+          <Select getSelect={getSelect} />
+        </Pagination>
       </Main>
     </>
   );

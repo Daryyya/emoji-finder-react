@@ -1,6 +1,7 @@
 import React from "react";
+import style from "./style.module.scss";
 
-const Pagination = ({ perPage, setPage, page }) => {
+const Pagination = ({ perPage, setPage, page, children }) => {
   let arr = [];
 
   for (let i = 1; i <= perPage; i++) {
@@ -40,18 +41,33 @@ const Pagination = ({ perPage, setPage, page }) => {
   );
 
   return (
-    <div style={{ position: "sticky" }}>
-      <button disabled={page === 1} onClick={() => setPage(1)}>
-        first page
-      </button>
-      {t.map((el) => (
-        <button onClick={() => setPage(el)} key={el.toString()}>
-          {el}
+    <div className={style.wrapper}>
+      <div>
+        <button
+          className={style.btn}
+          disabled={page === 1}
+          onClick={() => setPage(1)}
+        >
+          first page
         </button>
-      ))}
-      <button disabled={page === perPage} onClick={() => setPage(perPage)}>
-        last page
-      </button>
+        {t.map((el) => (
+          <button
+            className={style.btn}
+            onClick={() => setPage(el)}
+            key={el.toString()}
+          >
+            {el}
+          </button>
+        ))}
+        <button
+          className={style.btn}
+          disabled={page === perPage}
+          onClick={() => setPage(perPage)}
+        >
+          last page
+        </button>
+      </div>
+      {children}
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 986px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 9px 15px;
+}
+.btn:focus {
+  background-color: rgb(176, 223, 223);
+}
