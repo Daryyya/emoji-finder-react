@@ -10,13 +10,8 @@ import Pagination from "./Pagination";
 
 function App() {
   const [value, setValue] = useState("");
-  const [select, setSelect] = useState(10);
+  const [select, setSelect] = useState(12);
   const [page, setPage] = useState(1);
-
-  let perPage = Math.ceil(cards.length / select);
-
-  let lastElem = page * select;
-  let firstElem = page * select - select;
 
   let sortArr = cards.filter(
     ({ title, keywords }) =>
@@ -24,6 +19,13 @@ function App() {
       title.toLowerCase().includes(value) ||
       keywords.toLowerCase().includes(value)
   );
+
+  let perPage = Math.ceil(sortArr.length / select);
+
+  let lastElem = page * select;
+  let firstElem = page * select - select;
+
+  
 
   let test = sortArr.slice(firstElem, lastElem);
 
@@ -51,7 +53,7 @@ function App() {
           ))}
         </Container>
         <Select getSelect={getSelect} />
-        <Pagination perPage={perPage} getPage={setPage} />
+        <Pagination perPage={perPage} setPage={setPage} page={page}/>
       </Main>
     </>
   );
