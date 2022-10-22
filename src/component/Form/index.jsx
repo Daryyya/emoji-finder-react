@@ -1,7 +1,11 @@
 import React from "react";
 import style from "./style.module.scss";
 
-const Form = ({ test }) => {
+const Form = ({ onInput }) => {
+  function handleInput(event) {
+    onInput(event.target.value.toLowerCase().trim());
+  }
+
   return (
     <div>
       <form
@@ -12,7 +16,7 @@ const Form = ({ test }) => {
           className={style.input}
           placeholder="Keywords"
           type="text"
-          onInput={test}
+          onInput={handleInput}
         />
       </form>
     </div>

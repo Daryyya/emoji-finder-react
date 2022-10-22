@@ -1,12 +1,12 @@
-import Form from "./Form";
-import Header from "./Header";
-import Main from "./Main";
-import Container from "./Container";
-import { data as cards } from "./emoji.js";
-import Card from "./Card";
 import React, { useState } from "react";
-import Select from "./Select";
-import Pagination from "./Pagination";
+import { data as cards } from "./emoji.js";
+import Form from "./component/Form";
+import Header from "./component/Header";
+import Main from "./component/Main";
+import Container from "./component/Container";
+import Card from "./component/Card";
+import Select from "./component/Select";
+import Pagination from "./component/Pagination";
 
 function App() {
   const [value, setValue] = useState("");
@@ -24,12 +24,7 @@ function App() {
 
   let lastElem = page * select;
   let firstElem = page * select - select;
-
   let test = sortArr.slice(firstElem, lastElem);
-
-  function getValue(event) {
-    setValue(event.target.value.toLowerCase().trim());
-  }
   function getSelect(event) {
     setSelect(event.target.value);
   }
@@ -37,13 +32,13 @@ function App() {
   return (
     <>
       <Header>
-        <Form test={getValue} />
+        <Form onInput={setValue} />
       </Header>
       <Main>
         <Container>
-          {test.map(({ title, symbol, keywords }, index) => (
+          {test.map(({ title, symbol, keywords }) => (
             <Card
-              key={index}
+              key={title}
               title={title}
               symbol={symbol}
               keywords={[...new Set(keywords.split(" "))].join(",")}
